@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :disciplines
+  resources :results
   resources :schedules
   resources :role_resources
   resources :resources

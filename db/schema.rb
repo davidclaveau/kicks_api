@@ -10,15 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_10_220016) do
+ActiveRecord::Schema.define(version: 2021_08_10_222535) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "resources", force: :cascade do |t|
-    t.string "name"
+  create_table "disciplines", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "reason", null: false
+    t.date "action", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_disciplines_on_user_id"
+  end
+
+  create_table "resources", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "results", force: :cascade do |t|
+    t.bigint "schedule_id", null: false
+    t.bigint "female_player_id", null: false
+    t.bigint "male_player_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["female_player_id"], name: "index_results_on_female_player_id"
+    t.index ["male_player_id"], name: "index_results_on_male_player_id"
+    t.index ["schedule_id"], name: "index_results_on_schedule_id"
   end
 
   create_table "role_resources", force: :cascade do |t|
@@ -31,19 +51,19 @@ ActiveRecord::Schema.define(version: 2021_08_10_220016) do
   end
 
   create_table "roles", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
+    t.string "name", null: false
+    t.string "description", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "schedules", force: :cascade do |t|
-    t.string "season"
-    t.string "game_date"
-    t.string "game_time"
+    t.string "season", null: false
+    t.string "game_date", null: false
+    t.string "game_time", null: false
     t.bigint "home_team_id", null: false
     t.bigint "away_team_id", null: false
-    t.string "field"
+    t.string "field", null: false
     t.boolean "holiday"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -52,7 +72,7 @@ ActiveRecord::Schema.define(version: 2021_08_10_220016) do
   end
 
   create_table "teams", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -79,6 +99,10 @@ ActiveRecord::Schema.define(version: 2021_08_10_220016) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "disciplines", "users"
+  add_foreign_key "results", "schedules"
+  add_foreign_key "results", "users", column: "female_player_id"
+  add_foreign_key "results", "users", column: "male_player_id"
   add_foreign_key "role_resources", "resources"
   add_foreign_key "role_resources", "roles"
   add_foreign_key "schedules", "teams", column: "away_team_id"

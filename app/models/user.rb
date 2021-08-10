@@ -1,6 +1,10 @@
 class User < ApplicationRecord
   has_many :teams
-  has_many :user_role
+  has_many :user_roles
+  has_many :disciplines
+  
+  belongs_to :female_player_id, class_name: "User"
+  belongs_to :male_player_id, class_name: "User"
 
   validates :email, presence: true, uniqueness: true
   validates :password_digest, presence: true
