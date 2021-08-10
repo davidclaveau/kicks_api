@@ -5,7 +5,7 @@ one:
   password_digest: MyString
   first_name: MyString
   last_name: MyString
-  phone_number: 1
+  phone_number: MyString
   team_id: 1
   winter_team: MyString
   public_sector: MyString
@@ -15,7 +15,7 @@ two:
   password_digest: MyString
   first_name: MyString
   last_name: MyString
-  phone_number: 1
+  phone_number: MyString
   team_id: 1
   winter_team: MyString
   public_sector: MyString
