@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :teams
+  has_many :user_role
 
   validates :email, presence: true, uniqueness: true
   validates :password_digest, presence: true
