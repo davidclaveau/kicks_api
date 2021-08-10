@@ -17,8 +17,9 @@ ActiveRecord::Schema.define(version: 2021_08_10_222535) do
 
   create_table "disciplines", force: :cascade do |t|
     t.bigint "user_id", null: false
+    t.string "card", null: false
     t.string "reason", null: false
-    t.date "action", null: false
+    t.string "action"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_disciplines_on_user_id"
@@ -32,18 +33,22 @@ ActiveRecord::Schema.define(version: 2021_08_10_222535) do
 
   create_table "results", force: :cascade do |t|
     t.bigint "schedule_id", null: false
-    t.bigint "female_player_id", null: false
-    t.bigint "male_player_id", null: false
+    t.bigint "home_female_player_id", null: false
+    t.bigint "home_male_player_id", null: false
+    t.bigint "away_female_player_id", null: false
+    t.bigint "away_male_player_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["female_player_id"], name: "index_results_on_female_player_id"
-    t.index ["male_player_id"], name: "index_results_on_male_player_id"
+    t.index ["away_female_player_id"], name: "index_results_on_away_female_player_id"
+    t.index ["away_male_player_id"], name: "index_results_on_away_male_player_id"
+    t.index ["home_female_player_id"], name: "index_results_on_home_female_player_id"
+    t.index ["home_male_player_id"], name: "index_results_on_home_male_player_id"
     t.index ["schedule_id"], name: "index_results_on_schedule_id"
   end
 
   create_table "role_resources", force: :cascade do |t|
-    t.bigint "resource_id", null: false
     t.bigint "role_id", null: false
+    t.bigint "resource_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["resource_id"], name: "index_role_resources_on_resource_id"
@@ -60,6 +65,7 @@ ActiveRecord::Schema.define(version: 2021_08_10_222535) do
   create_table "schedules", force: :cascade do |t|
     t.string "season", null: false
     t.string "game_date", null: false
+    t.string "game_day", null: false
     t.string "game_time", null: false
     t.bigint "home_team_id", null: false
     t.bigint "away_team_id", null: false
@@ -95,14 +101,17 @@ ActiveRecord::Schema.define(version: 2021_08_10_222535) do
     t.integer "team_id"
     t.string "winter_team"
     t.string "public_sector"
+    t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   add_foreign_key "disciplines", "users"
   add_foreign_key "results", "schedules"
-  add_foreign_key "results", "users", column: "female_player_id"
-  add_foreign_key "results", "users", column: "male_player_id"
+  add_foreign_key "results", "users", column: "away_female_player_id"
+  add_foreign_key "results", "users", column: "away_male_player_id"
+  add_foreign_key "results", "users", column: "home_female_player_id"
+  add_foreign_key "results", "users", column: "home_male_player_id"
   add_foreign_key "role_resources", "resources"
   add_foreign_key "role_resources", "roles"
   add_foreign_key "schedules", "teams", column: "away_team_id"

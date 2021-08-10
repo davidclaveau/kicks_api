@@ -9,6 +9,7 @@ class CreateUsers < ActiveRecord::Migration[6.1]
       t.integer :team_id
       t.string :winter_team
       t.string :public_sector
+      t.string :image
 
       t.timestamps
     end
