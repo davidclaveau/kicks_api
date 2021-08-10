@@ -1,4 +1,4 @@
-class RoleResourcesController < ApplicationController
+class Api::V1::RoleResourcesController < ApplicationController
   before_action :set_role_resource, only: [:show, :update, :destroy]
 
   # GET /role_resources

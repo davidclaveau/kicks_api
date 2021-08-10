@@ -1,4 +1,4 @@
-class DisciplinesController < ApplicationController
+class Api::V1::DisciplinesController < ApplicationController
   before_action :set_discipline, only: [:show, :update, :destroy]
 
   # GET /disciplines

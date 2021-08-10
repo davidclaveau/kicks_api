@@ -1,12 +1,16 @@
 Rails.application.routes.draw do
-  resources :disciplines
-  resources :results
-  resources :schedules
-  resources :role_resources
-  resources :resources
-  resources :user_roles
-  resources :roles
-  resources :teams
-  resources :users
+  namespace :api do
+    namespace :v1 do
+      resources :disciplines
+      resources :results
+      resources :schedules
+      resources :role_resources
+      resources :resources
+      resources :user_roles
+      resources :roles
+      resources :teams
+      resources :users
+    end
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
