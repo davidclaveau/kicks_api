@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  season: MyString
+  game_date: MyString
+  game_time: MyString
+  home_team_id: one
+  away_team_id: one
+  field: MyString
+  holiday: false
+
+two:
+  season: MyString
+  game_date: MyString
+  game_time: MyString
+  home_team_id: two
+  away_team_id: two
+  field: MyString
+  holiday: false

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_10_214629) do
+ActiveRecord::Schema.define(version: 2021_08_10_220016) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,20 @@ ActiveRecord::Schema.define(version: 2021_08_10_214629) do
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "schedules", force: :cascade do |t|
+    t.string "season"
+    t.string "game_date"
+    t.string "game_time"
+    t.bigint "home_team_id", null: false
+    t.bigint "away_team_id", null: false
+    t.string "field"
+    t.boolean "holiday"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["away_team_id"], name: "index_schedules_on_away_team_id"
+    t.index ["home_team_id"], name: "index_schedules_on_home_team_id"
   end
 
   create_table "teams", force: :cascade do |t|
@@ -67,6 +81,8 @@ ActiveRecord::Schema.define(version: 2021_08_10_214629) do
 
   add_foreign_key "role_resources", "resources"
   add_foreign_key "role_resources", "roles"
+  add_foreign_key "schedules", "teams", column: "away_team_id"
+  add_foreign_key "schedules", "teams", column: "home_team_id"
   add_foreign_key "user_roles", "roles"
   add_foreign_key "user_roles", "users"
 end

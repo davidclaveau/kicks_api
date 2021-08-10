@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :schedules
   resources :role_resources
   resources :resources
   resources :user_roles
