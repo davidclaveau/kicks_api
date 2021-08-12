@@ -144,22 +144,22 @@
   Team.create!(
     name: "Team 1",
     jersey_img: "...",
-    team_manager_id: "6"
+    manager_id: "6"
   )
   Team.create!(
     name: "Team 2",
     jersey_img: "...",
-    team_manager_id: "2"
+    manager_id: "2"
   )
   Team.create!(
     name: "Team 3",
     jersey_img: "...",
-    team_manager_id: "3"
+    manager_id: "3"
   )
   Team.create!(
     name: "Team 4",
     jersey_img: "...",
-    team_manager_id: "4"
+    manager_id: "4"
   )
 
 ################################### Role ########################################
@@ -189,9 +189,24 @@
     role_id: 2
   )
 
-  # Manager
+  # Managers
   UserRole.create!(
-    user_id: 6,
+    user_id: 6, # Team 1
+    role_id: 3
+  )
+
+  UserRole.create!(
+    user_id: 2, # Team 2
+    role_id: 3
+  )
+  
+  UserRole.create!(
+    user_id: 3, # Team 3
+    role_id: 3
+  )
+  
+  UserRole.create!(
+    user_id: 4, # Team 4
     role_id: 3
   )
 
