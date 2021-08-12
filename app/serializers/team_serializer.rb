@@ -1,5 +1,6 @@
 class TeamSerializer < ActiveModel::Serializer
   attributes :id, :name, :manager
+  
   def manager
     {manager_id: self.object.user.id, 
      manager_first_name: self.object.user.first_name,
