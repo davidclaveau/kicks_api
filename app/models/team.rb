@@ -1,3 +1,3 @@
 class Team < ApplicationRecord
-  has_many :manager, foreign_key: "manager_id"
+  belongs_to :user, foreign_key: "manager_id"
 end

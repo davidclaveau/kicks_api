@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :teams
+  has_many :teams, foreign_key: "manager_id"
   has_many :user_roles
   has_many :disciplines
 
