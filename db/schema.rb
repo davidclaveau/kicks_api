@@ -79,8 +79,11 @@ ActiveRecord::Schema.define(version: 2021_08_10_222535) do
 
   create_table "teams", force: :cascade do |t|
     t.string "name", null: false
+    t.string "jersey_img", null: false
+    t.bigint "team_manager_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["team_manager_id"], name: "index_teams_on_team_manager_id"
   end
 
   create_table "user_roles", force: :cascade do |t|
@@ -116,6 +119,7 @@ ActiveRecord::Schema.define(version: 2021_08_10_222535) do
   add_foreign_key "role_resources", "roles"
   add_foreign_key "schedules", "teams", column: "away_team_id"
   add_foreign_key "schedules", "teams", column: "home_team_id"
+  add_foreign_key "teams", "users", column: "team_manager_id"
   add_foreign_key "user_roles", "roles"
   add_foreign_key "user_roles", "users"
 end

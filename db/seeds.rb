@@ -142,16 +142,24 @@
 
 ################################### Teams #######################################
   Team.create!(
-    name: "Team 1"
+    name: "Team 1",
+    jersey_img: "...",
+    team_manager_id: "6"
   )
   Team.create!(
-    name: "Team 2"
+    name: "Team 2",
+    jersey_img: "...",
+    team_manager_id: "2"
   )
   Team.create!(
-    name: "Team 3"
+    name: "Team 3",
+    jersey_img: "...",
+    team_manager_id: "3"
   )
   Team.create!(
-    name: "Team 4"
+    name: "Team 4",
+    jersey_img: "...",
+    team_manager_id: "4"
   )
 
 ################################### Role ########################################
