@@ -14,7 +14,6 @@
     first_name: "David",
     last_name: "Claveau",
     phone_number: "5555555551",
-    team_id: "1",
     winter_team: "JDF",
     public_sector: "none",
     image: "..."
@@ -26,7 +25,6 @@
     first_name: "Joanna",
     last_name: "Player",
     phone_number: "5555555552",
-    team_id: "2",
     winter_team: "Sooke",
     public_sector: "Mining",
     image: "..."
@@ -38,7 +36,6 @@
     first_name: "Mike",
     last_name: "Dude",
     phone_number: "5555555553",
-    team_id: "3",
     winter_team: "SPFC",
     public_sector: "Health",
     image: "..."
@@ -50,7 +47,6 @@
     first_name: "Mary",
     last_name: "Dudette",
     phone_number: "5555555554",
-    team_id: "4",
     winter_team: "Gorge",
     public_sector: "Energy",
     image: "..."
@@ -62,7 +58,6 @@
     first_name: "Mr. Referee",
     last_name: "NoSliding",
     phone_number: "5555555555",
-    team_id: "0",
     winter_team: "N/A",
     public_sector: "N/A",
     image: "..."
@@ -74,7 +69,6 @@
     first_name: "Mr. Manager",
     last_name: "Reganam",
     phone_number: "5555555556",
-    team_id: "2",
     winter_team: "N/A",
     public_sector: "N/A",
     image: "..."
@@ -86,7 +80,6 @@
     first_name: "Jane",
     last_name: "Doe",
     phone_number: "5555555557",
-    team_id: "1",
     winter_team: "JDF",
     public_sector: "none",
     image: "..."
@@ -98,7 +91,6 @@
     first_name: "John",
     last_name: "Smith",
     phone_number: "5555555558",
-    team_id: "2",
     winter_team: "Sooke",
     public_sector: "none",
     image: "..."
@@ -110,7 +102,6 @@
     first_name: "Caitlin",
     last_name: "Howe",
     phone_number: "5555555559",
-    team_id: "3",
     winter_team: "SPFC",
     public_sector: "none",
     image: "..."
@@ -122,7 +113,6 @@
     first_name: "Gerry",
     last_name: "Parker",
     phone_number: "5555555510",
-    team_id: "4",
     winter_team: "Gorge",
     public_sector: "none",
     image: "..."
@@ -134,7 +124,6 @@
     first_name: "Loud",
     last_name: "Mouth",
     phone_number: "5555555511",
-    team_id: "4",
     winter_team: "Gorge",
     public_sector: "none",
     image: "..."
@@ -144,23 +133,66 @@
   Team.create!(
     name: "Team 1",
     jersey_img: "...",
-    manager_id: "6"
+    manager_id: 6
   )
   Team.create!(
     name: "Team 2",
     jersey_img: "...",
-    manager_id: "2"
+    manager_id: 2
   )
   Team.create!(
     name: "Team 3",
     jersey_img: "...",
-    manager_id: "3"
+    manager_id: 3
   )
   Team.create!(
     name: "Team 4",
     jersey_img: "...",
-    manager_id: "4"
+    manager_id: 4
   )
+
+################################### Roster ######################################
+  Roster.create!(
+    user_id: 1,
+    team_id: 1
+  )
+  Roster.create!(
+    user_id: 2,
+    team_id: 2
+  )
+  Roster.create!(
+    user_id: 3,
+    team_id: 3
+  )
+  Roster.create!(
+    user_id: 4,
+    team_id: 4
+  )
+  Roster.create!(
+    user_id: "6",
+    team_id: 2
+  )
+  Roster.create!(
+    user_id: 7,
+    team_id: 1
+  )
+  Roster.create!(
+    user_id: 8,
+    team_id: 2
+  )
+  Roster.create!(
+    user_id: 9,
+    team_id: 3
+  )
+  Roster.create!(
+    user_id: 10,
+    team_id: 4
+  )
+  Roster.create!(
+    user_id: 11,
+    team_id: 4
+  )
+
 
 ################################### Role ########################################
   Role.create!(

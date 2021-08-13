@@ -2,14 +2,15 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :disciplines
-      resources :results
-      resources :schedules
-      resources :role_resources
       resources :resources
-      resources :user_roles
+      resources :results
+      resources :role_resources
       resources :roles
+      resources :rosters
+      resources :schedules
       resources :teams
       resources :users
+      resources :user_roles
     end
   end
   
