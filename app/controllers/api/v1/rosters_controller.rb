@@ -10,7 +10,10 @@ class Api::V1::RostersController < ApplicationController
 
   # GET /rosters/1
   def show
-    render json: @roster
+    # Show the roster that matches the team_id
+    team = Roster.where(team_id: set_roster)
+
+    render json: team
   end
 
   # POST /rosters

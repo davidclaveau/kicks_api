@@ -169,8 +169,8 @@
     team_id: 4
   )
   Roster.create!(
-    user_id: "6",
-    team_id: 2
+    user_id: 6,
+    team_id: 1
   )
   Roster.create!(
     user_id: 7,
