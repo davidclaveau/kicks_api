@@ -13,6 +13,11 @@ Rails.application.routes.draw do
       resources :user_roles
     end
   end
+
+  # Routes for logging in and session storing
+  post '/login',    to: 'sessions#create'
+  post '/logout',   to: 'sessions#destroy'
+  get '/logged_in', to: 'sessions#is_logged_in?'
   
   get :managers, to: "api/v1/teams#managers"
   

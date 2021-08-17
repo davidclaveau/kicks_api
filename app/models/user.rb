@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_secure_password
+  
   has_many :teams, foreign_key: "manager_id"
   has_many :user_roles
   has_many :disciplines

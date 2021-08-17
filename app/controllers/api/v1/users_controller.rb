@@ -4,23 +4,46 @@ class Api::V1::UsersController < ApplicationController
   # GET /users
   def index
     @users = User.all
-
-    render json: @users
+      if @users
+        render json: {
+        users: @users
+      }
+    else
+        render json: {
+        status: 500,
+        errors: ['no users found']
+    }
+    end
   end
 
   # GET /users/1
   def show
-    render json: @user
+    if @user
+      render json: {
+      user: @user
+   }
+   else
+      render json: {
+      status: 500,
+      errors: ['user not found']
+    }
+   end
   end
 
   # POST /users
   def create
     @user = User.new(user_params)
-
     if @user.save
-      render json: @user, status: :created, location: @user
-    else
-      render json: @user.errors, status: :unprocessable_entity
+      login!  
+      render json: {
+      status: :created,
+      user: @user
+    }
+    else 
+      render json: {
+      status: 500,
+      errors: @user.errors.full_messages
+    }
     end
   end
 
@@ -46,6 +69,6 @@ class Api::V1::UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:email, :password_digest, :first_name, :last_name, :phone_number, :team_id, :winter_team, :public_sector)
+      params.require(:user).permit(:email, :password, :password_confirmation, :first_name, :last_name, :phone_number, :team_id, :winter_team, :public_sector)
     end
 end
