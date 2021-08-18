@@ -11,7 +11,7 @@ class Api::V1::UsersController < ApplicationController
     else
         render json: {
         status: 500,
-        errors: ['no users found']
+        errors: ['No users found']
     }
     end
   end
@@ -25,7 +25,7 @@ class Api::V1::UsersController < ApplicationController
    else
       render json: {
       status: 500,
-      errors: ['user not found']
+      errors: ['User not found']
     }
    end
   end
