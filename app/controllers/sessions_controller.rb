@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   def create
-    @user = User.find_by(username: session_params[:username])
+    @user = User.find_by(email: session_params[:email])
   
     # Authenticate the user data with .authenticate, a method that the user model
     # gets from bcrypt and the has_secure_password line in the user class.
@@ -41,6 +41,6 @@ class SessionsController < ApplicationController
   private
   
   def session_params
-    params.require(:user).permit(:username, :password)
+    params.require(:user).permit(:email, :password)
   end
 end

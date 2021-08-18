@@ -10,7 +10,8 @@
 ################################### Users #######################################
   User.create!(
     email: "1@dev.com",
-    password_digest: "password",
+    password: "password",
+    password_confirmation: "password",
     first_name: "David",
     last_name: "Claveau",
     phone_number: "5555555551",
@@ -21,7 +22,8 @@
 
   User.create!(
     email: "2@dev.com",
-    password_digest: "password",
+    password: "password",
+    password_confirmation: "password",
     first_name: "Joanna",
     last_name: "Player",
     phone_number: "5555555552",
@@ -32,7 +34,8 @@
 
   User.create!(
     email: "3@dev.com",
-    password_digest: "password",
+    password: "password",
+    password_confirmation: "password",
     first_name: "Mike",
     last_name: "Dude",
     phone_number: "5555555553",
@@ -43,7 +46,8 @@
 
   User.create!(
     email: "4@dev.com",
-    password_digest: "password",
+    password: "password",
+    password_confirmation: "password",
     first_name: "Mary",
     last_name: "Dudette",
     phone_number: "5555555554",
@@ -54,7 +58,8 @@
 
   User.create!(
     email: "5@dev.com",
-    password_digest: "password",
+    password: "password",
+    password_confirmation: "password",
     first_name: "Mr. Referee",
     last_name: "NoSliding",
     phone_number: "5555555555",
@@ -65,7 +70,8 @@
 
   User.create!(
     email: "6@dev.com",
-    password_digest: "password",
+    password: "password",
+    password_confirmation: "password",
     first_name: "Mr. Manager",
     last_name: "Reganam",
     phone_number: "5555555556",
@@ -76,7 +82,8 @@
 
   User.create!(
     email: "7@dev.com",
-    password_digest: "password",
+    password: "password",
+    password_confirmation: "password",
     first_name: "Jane",
     last_name: "Doe",
     phone_number: "5555555557",
@@ -87,7 +94,8 @@
 
   User.create!(
     email: "8@dev.com",
-    password_digest: "password",
+    password: "password",
+    password_confirmation: "password",
     first_name: "John",
     last_name: "Smith",
     phone_number: "5555555558",
@@ -98,7 +106,8 @@
 
   User.create!(
     email: "9@dev.com",
-    password_digest: "password",
+    password: "password",
+    password_confirmation: "password",
     first_name: "Caitlin",
     last_name: "Howe",
     phone_number: "5555555559",
@@ -109,7 +118,8 @@
 
   User.create!(
     email: "10@dev.com",
-    password_digest: "password",
+    password: "password",
+    password_confirmation: "password",
     first_name: "Gerry",
     last_name: "Parker",
     phone_number: "5555555510",
@@ -120,7 +130,8 @@
 
   User.create!(
     email: "11@dev.com",
-    password_digest: "password",
+    password: "password",
+    password_confirmation: "password",
     first_name: "Loud",
     last_name: "Mouth",
     phone_number: "5555555511",
