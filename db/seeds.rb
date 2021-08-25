@@ -218,6 +218,10 @@
     name: "Managers",
     description: "Manager - able to add or remove players from teams"
   )
+  Role.create!(
+    name: "Player",
+    description: "Players - only able to view their accounts"
+  )
 
 ################################### UserRole ####################################
   # Admin
@@ -251,6 +255,28 @@
   UserRole.create!(
     user_id: 4, # Team 4
     role_id: 3
+  )
+
+  #Players
+  UserRole.create!(
+    user_id: 7,
+    role_id: 4
+  )
+  UserRole.create!(
+    user_id: 8,
+    role_id: 4
+  )
+  UserRole.create!(
+    user_id: 9,
+    role_id: 4
+  )
+  UserRole.create!(
+    user_id: 10,
+    role_id: 4
+  )
+  UserRole.create!(
+    user_id: 11,
+    role_id: 4
   )
 
 ################################### Resource ####################################

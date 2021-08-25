@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  
+  
   def create
     @user = User.find_by(email: session_params[:email])
   
@@ -17,19 +19,25 @@ class SessionsController < ApplicationController
       }
     end
   end
+
   def is_logged_in?
-    if logged_in? && current_user
+    if logged_in? && current_user && is_admin?
+      puts "hello"
       render json: {
         logged_in: true,
-        user: current_user
+        user: current_user,
+        role: @role_name
       }
     else
+      puts "other"
       render json: {
         logged_in: false,
-        message: 'No such user'
+        message: 'No such user',
+        role: null
       }
     end
   end
+
   def destroy
     logout!
     render json: {

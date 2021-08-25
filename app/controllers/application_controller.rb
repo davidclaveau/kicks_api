@@ -3,13 +3,14 @@ class ApplicationController < ActionController::Base
   skip_before_action :verify_authenticity_token
 
   # This allows for these methods to be passed to all other controllers in the app
-  helper_method :login!, :logged_in?, :current_user,     :authorized_user?, :logout!, :set_user
+  helper_method :login!, :logged_in?, :current_user, :authorized_user?, :is_admin?, :logout!, :set_user
       
   def login!
     session[:user_id] = @user.id
   end
 
   def logged_in?
+    pp "I am here"
     !!session[:user_id]
   end
 
@@ -19,6 +20,13 @@ class ApplicationController < ActionController::Base
 
   def authorized_user?
     @user == current_user
+  end
+
+  def is_admin?
+    user_role = UserRole.find(session[:user_id])
+    role = Role.find(user_role[:role_id])
+
+    @role_name = role[:name]
   end
 
   def logout!
