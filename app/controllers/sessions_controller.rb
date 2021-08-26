@@ -8,9 +8,11 @@ class SessionsController < ApplicationController
     # gets from bcrypt and the has_secure_password line in the user class.
     if @user && @user.authenticate(session_params[:password])
       login!
+      is_admin?
       render json: {
         logged_in: true,
-        user: @user
+        user: @user,
+        role: @role_name
       }
     else
       render json: { 
@@ -22,14 +24,12 @@ class SessionsController < ApplicationController
 
   def is_logged_in?
     if logged_in? && current_user && is_admin?
-      puts "hello"
       render json: {
         logged_in: true,
         user: current_user,
         role: @role_name
       }
     else
-      puts "other"
       render json: {
         logged_in: false,
         message: 'No such user',
