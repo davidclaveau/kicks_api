@@ -33,7 +33,7 @@ class SessionsController < ApplicationController
       render json: {
         logged_in: false,
         message: 'No such user',
-        role: null
+        role: nil
       }
     end
   end
