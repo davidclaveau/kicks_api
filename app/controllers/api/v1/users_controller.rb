@@ -62,8 +62,7 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def search
-
-    # If search param is string (eg. "David Claveau") then split up string
+    # If search param is string (eg. "John Smith") then split up string
     # Into multiple strings in an array and search for each string
     if params[:q].match(/\s/)
       searchArr = params[:q].gsub(/\s+/m, ' ').strip.split(" ")
