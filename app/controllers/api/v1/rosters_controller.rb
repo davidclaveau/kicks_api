@@ -20,13 +20,13 @@ class Api::V1::RostersController < ApplicationController
   def create
     @roster = Roster.new(roster_params)
 
-    pp "hello"
-    pp roster_params
-
     if @roster.save
       render json: @roster, status: :created
     else
-      render json: @roster.errors, status: :unprocessable_entity
+      render json: {
+        status: 500,
+        errors: @roster.errors.full_messages
+      }
     end
   end
 
