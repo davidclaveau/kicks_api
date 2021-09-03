@@ -61,6 +61,24 @@ class Api::V1::UsersController < ApplicationController
     @user.destroy
   end
 
+  def search
+    # If search param is string (eg. "John Smith") then split up string
+    # Into multiple strings in an array and search for each string
+    if params[:q].match(/\s/)
+      searchArr = params[:q].gsub(/\s+/m, ' ').strip.split(" ")
+    else
+      searchArr = [params[:q]]
+    end
+
+    searchArr.each do |searchTerm|
+      @users = User
+        .where("lower(first_name) LIKE ?", "%" + searchTerm.downcase + "%")
+        .or(User.where("lower(last_name) LIKE ?", "%" + searchTerm.downcase + "%"))
+    end
+    
+    render json: @users
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user

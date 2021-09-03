@@ -215,7 +215,7 @@
     description: "Referee - able to add sportsmanlike players and any disciplinary cards issued during games"
   )
   Role.create!(
-    name: "Managers",
+    name: "Manager",
     description: "Manager - able to add or remove players from teams"
   )
   Role.create!(

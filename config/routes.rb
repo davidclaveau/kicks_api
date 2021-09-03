@@ -19,7 +19,13 @@ Rails.application.routes.draw do
   post '/logout',   to: 'sessions#destroy'
   get '/logged_in', to: 'sessions#is_logged_in?'
   
-  get :managers, to: "api/v1/teams#managers"
+  get :managers, to: 'api/v1/teams#managers'
+
+  # Player search, adding players to rosters
+  get '/user_search', to: 'api/v1/users#search'
+  
+  # Remove players
+  get '/remove_player', to: 'api/v1/rosters#remove_player'
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
