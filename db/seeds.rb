@@ -142,23 +142,33 @@
 
 ################################### Teams #######################################
   Team.create!(
-    name: "Team 1",
+    name: "Canucks",
     jersey_img: "...",
+    active: true,
     manager_id: 6
   )
   Team.create!(
-    name: "Team 2",
+    name: "Flames",
     jersey_img: "...",
+    active: true,
     manager_id: 2
   )
   Team.create!(
-    name: "Team 3",
+    name: "Oilers",
     jersey_img: "...",
+    active: true,
     manager_id: 3
   )
   Team.create!(
-    name: "Team 4",
+    name: "Jets",
     jersey_img: "...",
+    active: true,
+    manager_id: 4
+  )
+  Team.create!(
+    name: "Nordiques",
+    jersey_img: "...",
+    active: false,
     manager_id: 4
   )
 
