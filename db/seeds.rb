@@ -168,7 +168,7 @@
   Team.create!(
     name: "Nordiques",
     jersey_img: "...",
-    active: true,
+    active: false,
     manager_id: 4
   )
 
