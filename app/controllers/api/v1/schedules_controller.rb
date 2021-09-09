@@ -18,7 +18,7 @@ class Api::V1::SchedulesController < ApplicationController
     @schedule = Schedule.new(schedule_params)
 
     if @schedule.save
-      render json: @schedule, status: :created, location: @schedule
+      render json: @schedule
     else
       render json: @schedule.errors, status: :unprocessable_entity
     end
@@ -46,6 +46,6 @@ class Api::V1::SchedulesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def schedule_params
-      params.require(:schedule).permit(:season, :game_date, :game_time, :home_team_id_id, :away_team_id_id, :field, :holiday)
+      params.require(:schedule).permit(:season, :game_day, :game_date, :game_time, :home_team_id, :away_team_id, :field, :holiday)
     end
 end
