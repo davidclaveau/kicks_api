@@ -5,6 +5,8 @@ application up and running.
 
 Things you may want to cover:
 
+* Use `rails server --port 3001` to start the server
+
 * Ruby version
 
 * System dependencies

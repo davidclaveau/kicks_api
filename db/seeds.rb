@@ -348,7 +348,7 @@
 ################################### Schedule ####################################
   Schedule.create!(
     season: "2021",
-    game_date: "2021-08-31",
+    game_date: "08/31/2021",
     game_day: "Tuesday",
     game_time: "18:00",
     home_team_id: 1,
@@ -359,7 +359,7 @@
 
   Schedule.create!(
     season: "2021",
-    game_date: "2021-08-31",
+    game_date: "08/31/2021",
     game_day: "Tuesday",
     game_time: "18:00",
     home_team_id: 3,
@@ -370,7 +370,7 @@
 
   Schedule.create!(
     season: "2021",
-    game_date: "2021-09-06",
+    game_date: "09/06/2021",
     game_day: "Tuesday",
     game_time: "18:00",
     home_team_id: 1,
